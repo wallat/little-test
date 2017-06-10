@@ -5,11 +5,11 @@ import guid from 'guid'
 import store from 'store'
 import 'whatwg-fetch'
 import {ExplainNButton, ExplainNCountDown, SlideShows, AnswerPage, CountDownTimer, ThankYouPage} from './steps.js'
-import './App.css'
+import './Exame.css'
 
 const END_POINT = 'https://gwvxd5rut2.execute-api.ap-northeast-1.amazonaws.com/prod/PinShunLittleTest'
 
-class App extends React.Component {
+class Exame extends React.Component {
 	static propTypes = {
 		groups: PropTypes.array.isRequired
 	}
@@ -209,4 +209,4 @@ class App extends React.Component {
 	}
 }
 
-export default App
+export default Exame

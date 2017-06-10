@@ -1,0 +1,18 @@
+.an-token {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.is-non-standard {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+.matched-answer {
+	color: #b5cc18;
+}
+
+.dismatched-answer {
+	color: #f2711c;
+}
