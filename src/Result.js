@@ -19,8 +19,8 @@ class AnswerRow extends React.Component {
 
 	renderTokens (tokens, answers, tokenGroup) {
 		// mark all the items at group 2
-		return tokens.map(token => {
-			return <span className={classnames('an-token', {
+		return tokens.map((token, idx) => {
+			return <span key={idx} className={classnames('an-token', {
 				'is-non-standard': tokenGroup.NONE_STANDARD.indexOf(token)>-1,
 				'matched-answer': answers.indexOf(token)>-1,
 			})}>
@@ -31,12 +31,15 @@ class AnswerRow extends React.Component {
 
 	renderAnswers (tokens, answers, tokenGroup) {
 		// mark all the items at group 2
-		return answers.map(answer => {
-			return <span className={classnames('an-token', {
-				'is-non-standard': tokenGroup.NONE_STANDARD.indexOf(answer)>-1,
-				'matched-answer': tokens.indexOf(answer)>-1,
-				'dismatched-answer': tokens.indexOf(answer)<0,
-			})}>
+		return answers.map((answer, idx) => {
+			return <span
+				key={idx}
+				className={classnames('an-token', {
+					'is-non-standard': tokenGroup.NONE_STANDARD.indexOf(answer)>-1,
+					'matched-answer': tokens.indexOf(answer)>-1,
+					'dismatched-answer': tokens.indexOf(answer)<0,
+				}
+			)}>
 				{answer}
 			</span>
 		})
@@ -81,7 +84,7 @@ class AnswerRow extends React.Component {
 				{props.groups.map((group, groupIdx) => {
 					let tokenGroup = props.defs[groupIdx].tokenGroups[group.choosenTokenGroup]
 					return (
-				        <li>
+				        <li key={groupIdx}>
 							<dl>
 								<dt>題目</dt>
 								<dd>{this.renderTokens(group.tokens, group.answers, tokenGroup)}</dd>
@@ -142,8 +145,8 @@ export default class Result extends React.Component {
 				{this.state.fetchState==='FETCHING' && <Loader size="huge" active={true}></Loader>}
 
 				{result && result.Items.map((item) => {
-					return <div>
-						<AnswerRow {...item} key={item.id} defs={TO_ANSWER_GROUPS}/>
+					return <div key={item.id} >
+						<AnswerRow {...item} defs={TO_ANSWER_GROUPS}/>
 						<Divider></Divider>
 					</div>
 				})}
