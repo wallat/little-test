@@ -26,10 +26,16 @@
 	margin-top: 20px;
 }
 
-.answer-form.ui.form {
+.container {
 	width: 80%;
-	max-width: 300px;
+	max-width: 350px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
+.answer-form.ui.form {
+	width: 100%;
 }
 
 .answer-form.ui.form .field textarea {
@@ -40,4 +46,15 @@
 
 .answer-form.ui.form button {
 	width: 100%;
+}
+
+.result-message.ui.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.result-message.ui.header > .icon {
+	padding: 0;
+	margin: 0;
 }
